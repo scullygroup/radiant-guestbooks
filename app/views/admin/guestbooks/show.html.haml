@@ -1,0 +1,10 @@
+- include_stylesheet 'admin/application'
+#work
+  %h1
+    = h @guestbook.author
+  .content-links
+    %ul
+      %li
+        = link_to "#{image_tag ("admin/icons-small/edit.png", :border =>0, :title => 'Edit')}Edit", "/admin/guestbooks/edit/#{params[:id]}"
+      %li
+        = link_to "#{image_tag ("admin/icons-small/delete.png", :border =>0, :title => 'Delete')}Delete", "/admin/guestbooks/remove/#{params[:id]}", :confirm => "Are you sure?"

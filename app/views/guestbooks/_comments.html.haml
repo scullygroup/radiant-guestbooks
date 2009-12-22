@@ -1,0 +1,20 @@
+- for guest in @guestbooks
+  %p
+    = h guest.body
+  %p.author
+    = h guest.author
+
+#pagination
+  .pagination
+    = page_entries_info @guestbooks, :entry_name => 'Comment'
+  = will_paginate @guestbooks, :page_links => false, :renderer => 'RemoteLinkRenderer', :remote => {:update => 'comments-area'}
+
+%script
+  $(document).ready(function() {
+  Cufon.replace('#guestalbum h1', {fontFamily: 'Dakota'});
+  Cufon.replace('#guestalbum p', {fontFamily: 'Dakota'});
+  Cufon.replace('.pagination', {fontFamily: 'Dakota'});
+  Cufon.replace('.pagination a', {fontFamily: 'Dakota'});
+  Cufon.replace('.pagination span', {fontFamily: 'Dakota'});
+  $('.pagination span.gap').html("...");
+  });

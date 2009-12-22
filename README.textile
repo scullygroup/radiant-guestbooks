@@ -1,0 +1,41 @@
+h1. Radiant CMS guestbook management tool extension
+
+
+h2. Features
+
+Allows you to add a paginated Guestbook in Radiant which will randomly display a guest's comments on a page.
+
+h2. Requirements
+
+<p>*Radiant Extensions*<br />
+Shared-Layout, "http://github.com/radiant/radiant-share-layouts-extension":http://github.com/radiant/radiant-share-layouts-extension</p>
+
+<p>*Gems*<br />
+Will_Paginate, "http://wiki.github.com/mislav/will_paginate":http://wiki.github.com/mislav/will_paginate</p>
+
+h2. How to Install
+
+Place the guestbook extension in vendor/extensions
+<pre><code>
+  git clone git://github.com/scullygroup/radiant-guestbook.git vender/extensions/guestbooks
+</code></pre>
+
+Run the migration of the Guestbook extension
+<pre><code>
+rake radiant:extensions:guestbooks:migrate
+rake radiant:extensions:guestbooks:update
+</code></pre>
+
+h2. Notes
+
+This extension uses Sean Cribbs excellent radiant-share-layouts-extension (http://github.com/radiant/radiant-share-layouts-extension).
+
+The project show view is wrapped in a block (in this example, this queries the body column): 
+<pre><code><% content_for :guestbook do %></code></pre>
+
+In order to invoke the view on a Radiant page, create a layout called "GuestComments" and insert the following radial tags wherever you want the guestbook to appear: 
+<pre><code>
+  <r:content part="guestbook" />
+</code></pre>
+
+Copyright (c) 2009 Scully Group, released under the MIT License

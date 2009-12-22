@@ -1,0 +1,7 @@
+- include_stylesheet 'admin/application'
+%h1
+  Edit:
+  =h @guestbook.author
+
+= render :partial => '/admin/guestbooks/form', :locals => { :action => 'update' }
+

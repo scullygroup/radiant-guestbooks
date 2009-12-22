@@ -1,0 +1,11 @@
+xml.instruct! :xml, :version=>"1.0"
+xml.container {
+  
+  for guestbook in @guestbooks
+    xml.guestbook {
+        xml.body(guestbook.body)
+        xml.author(guestbook.author)
+      }    
+  end
+
+}

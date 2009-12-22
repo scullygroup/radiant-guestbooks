@@ -1,0 +1,5 @@
+- include_stylesheet 'admin/application'
+%h1
+  New Guest Comment
+
+= render :partial => '/admin/guestbooks/form', :locals => { :action => 'create' }

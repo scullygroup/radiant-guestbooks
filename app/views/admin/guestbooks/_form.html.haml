@@ -1,0 +1,18 @@
+- form_for(:guestbook, :url => "/admin/guestbooks/#{action}/#{params[:id]}") do
+  %p
+    %label
+      Guestbook Comment Author
+    = text_field "guestbook", "author", :class => 'textbox', :size => 50, :maxlength => 255
+    %br
+    %em
+      Use the format Firstname Lastname, City, State
+  %p
+    %label
+      Guestbook Comment
+    %br
+    = text_area "guestbook", "body", :class => 'textarea', :size => '100x30'
+    %br
+  %p.buttons
+    = save_model_button(@guestbook)
+    or
+    = link_to "Cancel", {:action => :index}
